@@ -1,30 +1,29 @@
 import sys
 
-user1 = input("Your name, user 1? ")
-user2 = input("And your name, user 2? ")
-user1_answer = input("%s, do yo want to choose rock, paper or scissors?" % user1)
-user2_answer = input("%s, do you want to choose rock, paper or scissors?" % user2)
+user1 = input("Name of user 1? ")
+user2 = input("Name of user 2?")
+user1_answer = input("%s, Whats you option between rock, paper or scissors? " % user1).lower().strip()
+user2_answer = input("%s, Whats you option between rock, paper or scissors? " % user2).lower().strip()
 
-def compare(u1, u2):
+def compare(u1, u2, name1, name2):
     if u1 == u2:
         return("It's a tie!")
     elif u1 == 'rock':
         if u2 == 'scissors':
-            return("Rock wins!")
-        else:
-            return("Paper wins!")
+            return(f"{name1} wins!")
+        elif u2 == 'paper':
+            return(f"{name2} wins!")
     elif u1 == 'scissors':
         if u2 == 'paper':
-            return("Scissors win!")
-        else:
-            return("Rock wins!")
+            return(f"{name1} wins!")
+        elif u2 == 'rock':
+            return(f"{name2} wins!")
     elif u1 == 'paper':
         if u2 == 'rock':
-            return("Paper wins!")
-        else:
-            return("Scissors win!")
-    else:
-        return("Invalid input! You have not entered rock, paper or scissors, try again.")
-        sys.exit()
+            return(f"{name1} wins!")
+        elif u2 == 'scissors':
+            return(f"{name2} wins!")
+    return("Invalid input! You have not entered rock, paper or scissors, try again.")
 
-print(compare(user1_answer, user2_answer))
+result = compare(user1_answer, user2_answer, user1, user2)
+print(result)
